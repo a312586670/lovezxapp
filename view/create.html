@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="height=device-height, width=device-width, initial-scale=1" />
+	<title></title>
+	<script src="../common/jQuery/jquery-2.1.0.min.js"></script>
+	<script src="../common/jQuery/jquery.mobile-1.4.5.min.js"></script>
+	<script src="../common/mobile.js"></script>
+	<script src="../common/swipe/swipe.js"></script>
+	<script src="../common/js/common.js"></script>
+	<link href="../common/jQuery/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
+	<link href="../common/css/common.css" rel="stylesheet" />
+	<link href="../common/css/chehi.css" rel="stylesheet" />
+	<link href="../common/icomoon/icomoon.css" rel="stylesheet" />
+	<script src="../common/jQuery/jquery.validate.min.js"></script>
+	<script src="../common/jQuery/jquery.validate.addMethod.js"></script>
+	<link href="../common/photoswipe/photoswipe.css" rel="stylesheet" />
+	<link href="../common/photoswipe/default-skin/default-skin.css" rel="stylesheet" />
+	<script src="../common/photoswipe/photoswipe.min.js"></script>
+	<script src="../common/photoswipe/photoswipe-ui-default.min.js"></script>
+	<script src="../common/photoswipe/creatPhotoswipe.js"></script>
+	<link href="../common/mobiscroll/mobiscroll-2.11.1.full.min.css" rel="stylesheet" />
+	<script src="../common/mobiscroll/mobiscroll-2.11.1.full.min.js"></script>
+</head>
+<body>
+	<div data-role="page" id="createTream">
+		<div data-role="header" data-position="fixed" data-tap-toggle="false">
+			<a href="#" data-rel="back" class="ui-btn-left btn-back icomoon-fanhui">返回</a>
+			<h1>创建团队</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<form class="loginForm">
+				<div class="field-contain">
+                    <div class="inputHasicon link-angle-r">
+						<a href="#" class="list-item" id="J_Portrait">
+						<div class="list-title">团队头像</div>
+						<div class="list-content">
+							<img src="../common/imgs/1.jpg" class="my-img" />
+						</div>
+					   </a>
+				</div>
+					<div class="inputHasicon">
+						<div class="ui-input-text icomoon-yonghu">
+							<input name="name" value="" type="text" placeholder="团队名称" data-role="none" />
+						</div>
+					</div>
+                    <div class="inputHasicon">
+						<div class="ui-input-text icomoon-pingpai J-SelectBrand">
+							<input name="phone" value="" type="text" placeholder="请选择品牌" data-role="none" />
+						</div>
+					</div>
+                    <div class="inputHasicon">
+						<div class="ui-input-text icomoon-documentvector">
+                            <textarea placeholder="给团队添上一点点介绍" class="no-border"  style="padding-left:0.4em; border:none;" name="content" id="J_Content"></textarea>
+					        <div class="input-text-tips"><span id="J_ComplainCount">0</span>/30</div>
+						</div>
+					</div>
+				</div>
+				<button class="ui-btn ui-btn-green form-btn" type="submit">提交</button>
+			</form>
+		</div>
+		<script>
+		    $(document).on("pageinit", "#createTream", function () {
+				var page = $(this);
+				var elForm = page.find('form'),
+					elSubmint = elForm.find("button[type=submit]");
+
+				page.find(".J-SelectBrand").bind("tap", function (ev) {
+				    $Goto("/selectbrand.html");
+				})
+
+		        //#region 描述字数
+				var complainCount = page.find("#J_ComplainCount");
+				page.find("#J_Content").bind("keydown keyup blur", function () {
+				    var me = $(this);
+				    var l = me.val().length;
+				    if (l > 30) {
+				        me.val(me.val().substring(0, 30));
+				        l = 30;
+				    }
+				    complainCount.text(30 - l);
+				});
+		        //#endregion
+
+
+				elForm.validate({
+					rules: {
+						name: {
+							required: true
+						},
+						phone: {
+							reguired: false,
+							mopbilephone: true
+						},
+						password: {
+							required: true
+						},
+						passwordagain: {
+							required: true,
+							equalTo: "#password"
+						}
+					},
+					messages: {
+						name: {
+							required: "请输入用户名"
+						},
+						password: {
+							required: "请输入密码"
+						},
+						passwordagain: {
+							required: "请确认密码",
+							equalTo: "两次输入的密码不一致"
+						}
+					},
+					submitHandler: function (form, ev) {
+						ev.preventDefault();
+
+						if (!page.find("#check").prop("checked")) {
+							$setAlert("请同意注册协议");
+							return false;
+						}
+
+						elSubmint.prop("disabled", true);
+						$.mobile.loading("show");
+
+						//TODO:注册
+
+						elSubmint.prop("disabled", false);
+						$.mobile.loading("hide");
+
+					},
+					invalidHandler: function () {
+						return false;
+					}
+				});
+			});
+		</script>
+	</div>
+</body>
+</html>

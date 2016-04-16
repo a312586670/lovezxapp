@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html ng-app="app" ng-controller="mainController" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1" />
+	<title>{{title}}</title>
+	<link href="css/common.css" rel="stylesheet" />
+	<link href="icomoon/icomoon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/angular-carousel.css" />
+    <link rel="stylesheet" href="css/mobile-angular-ui-hover.min.css" />
+    <link rel="stylesheet" href="css/mobile-angular-ui-base.min.css" />
+    <link rel="stylesheet" href="css/animate.min.css" />
+    <!-- angular-ui-reset.css:重写mobile-angular-ui-base.min.css部分样式 -->
+    <link rel="stylesheet" href="css/main.css" />
+	<!--<script src="js/libs/swipe/swipe.js"></script>-->
+	<!--<link href="js/libs/photoswipe/photoswipe.css" rel="stylesheet" />-->
+	<!--<link href="js/libs/photoswipe/default-skin/default-skin.css" rel="stylesheet" />-->
+	<!--<script src="js/libs/photoswipe/photoswipe.min.js"></script>-->
+	<!--<script src="js/libs/photoswipe/photoswipe-ui-default.min.js"></script>-->
+	<!--<script src="js/libs/photoswipe/creatPhotoswipe.js"></script>-->
+    <script src="js/libs/jquery-2.1.0.min.js"></script>
+	<!--<link href="js/libs/mobiscroll/mobiscroll-2.11.1.full.min.css" rel="stylesheet" />-->
+	<!--<script src="js/libs/mobiscroll/mobiscroll-2.11.1.full.min.js"></script>-->
+
+     <script src="js/libs/echo.js"></script>
+    <script src="js/libs/angular.min.js"></script>
+    <script src="js/libs/angular-sanitize.js"></script>
+    <script src="js/libs/angular-route.min.js"></script>
+    <script src="js/libs/angular.cookie.js"></script>
+
+    <script src="js/libs/mobile-angular-ui.js"></script>
+    <script src="js/libs/mobile-angular-ui.gestures.js"></script>
+
+    <script src="js/libs/angular-touch.js"></script>
+    <script src="js/libs/angular-carousel.js"></script>
+
+
+    <script src="js/app.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/directive.js"></script>
+    <script src="js/service.js"></script>
+    <script src="js/factory.js"></script>
+    <script src="js/filter.js"></script>
+
+    <script src="js/controller/reg.js"></script>
+    <script src="js/controller/user/user.js"></script>
+</head>
+<body>
+<div class="app">
+		<!--<div class="navbar navbar-app navbar-absolute-top">-->
+			<!--<a href="{{prefix}}selectcity" class="ui-btn-left btn-SelectCity icomoon-didian">杭州</a>-->
+			<!--<span>{{title}}</span>-->
+		<!--</div>-->
+    <div class="navbar navbar-app navbar-absolute-top">
+        <div class="navbar-brand navbar-brand-center" ui-yield-to="title">
+            <a href="{{prefix}}selectcity" class="pull-left ui-btn-left btn-SelectCity icomoon-didian">杭州</a>
+            <span>直销云</span>
+        </div>
+    </div>
+		<div class="navbar navbar-app navbar-absolute-bottom" ng-if="navbarBottom == true">
+			<div data-role="navbar">
+				<ul>
+					<li class="btn btn-navbar active"><a href="{{prefix}}/"  data-active="home">
+                      <i class="icomoon-home"></i>
+                      <span>首页</span>
+                      </a>
+                    </li>
+					<li class="btn btn-navbar"><a href="{{prefix}}community"  data-active="community">
+                      <i class="icomoon-yuyue"></i>
+                      <span>社区</span></a>
+                    </li>
+                    <li class="btn btn-navbar"><a href="{{prefix}}my" data-active="my">
+                      <i class="icomoon-wo"></i>
+                      <span>我的</span></a></li>
+                    <li class="btn btn-navbar"><a href="{{prefix}}more" data-active="more">
+                      <i class="icomoon-gengduo" ></i>
+                      <span>更多</span></a></li>
+				</ul>
+			</div>
+		</div>
+        <div class="app-body" ng-class="{loading: loading}">
+            <div ng-show="loading" class="app-content-loading">
+                <div class="loader-center-inner ball-grid-pulse">
+                    <b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b>
+                </div>
+            </div>
+            <div class="app-content">
+                <ng-view ></ng-view>
+            </div>
+        </div>
+</div>
+</body>
+</html>

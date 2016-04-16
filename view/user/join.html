@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1" />
+    <title></title>
+    <script src="../common/jQuery/jquery-2.1.0.min.js"></script>
+    <script src="../common/jQuery/jquery.mobile-1.4.5.min.js"></script>
+    <script src="../common/mobile.js"></script>
+    <script src="../common/swipe/swipe.js"></script>
+    <script src="../common/js/common.js"></script>
+    <link href="../common/jQuery/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
+    <link href="../common/css/common.css" rel="stylesheet" />
+    <link href="../common/css/chehi.css" rel="stylesheet" />
+    <link href="../common/icomoon/icomoon.css" rel="stylesheet" />
+    <script src="../common/jQuery/jquery.validate.min.js"></script>
+    <script src="../common/jQuery/jquery.validate.addMethod.js"></script>
+    <link href="../common/photoswipe/photoswipe.css" rel="stylesheet" />
+    <link href="../common/photoswipe/default-skin/default-skin.css" rel="stylesheet" />
+    <script src="../common/photoswipe/photoswipe.min.js"></script>
+    <script src="../common/photoswipe/photoswipe-ui-default.min.js"></script>
+    <script src="../common/photoswipe/creatPhotoswipe.js"></script>
+    <link href="../common/mobiscroll/mobiscroll-2.11.1.full.min.css" rel="stylesheet" />
+    <script src="../common/mobiscroll/mobiscroll-2.11.1.full.min.js"></script>
+</head>
+<body>
+    <div data-role="page" id="join">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <a href="#" data-rel="back" class="ui-btn-left btn-back icomoon-fanhui">返回</a>
+            <h1>直销团队</h1>
+            <a href="#" class="ui-btn-right btn-search icomoon-fangdajinghui" data-transition="slidedown" id="J_Search"></a>
+        </div>
+        <div class="search" id="J_SearchBox" style="display: none;">
+            <div class="ui-input-text icomoon-fangdajing">
+                <input type="text" placeholder="搜索团队" data-role="none" />
+            </div>
+        </div>
+        <div role="main" class="ui-content ui-content-full">
+            <div>
+                <ul class="worksList">
+                    <li>
+                        <a href="/member.html" class="works-item">
+                            <div class="works-img" style="background-image: url('../common/imgs/1.jpg')"></div>
+                            <div class="works-title">新系统</div>
+                            <div class="works-num">品牌:润和</div>
+                            <div class="works-price">人数:108</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/member.html" class="works-item">
+                            <div class="works-img" style="background-image: url('../common/imgs/1.jpg')"></div>
+                            <div class="works-title">新系统</div>
+                            <div class="works-num">品牌:润和</div>
+                            <div class="works-price">人数:108</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/member.html" class="works-item">
+                            <div class="works-img" style="background-image: url('../common/imgs/1.jpg')"></div>
+                            <div class="works-title">新系统</div>
+                            <div class="works-num">品牌:润和</div>
+                            <div class="works-price">人数:108</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/member.html" class="works-item">
+                            <div class="works-img" style="background-image: url('../common/imgs/1.jpg')"></div>
+                            <div class="works-title">新系统</div>
+                            <div class="works-num">品牌:润和</div>
+                            <div class="works-price">人数:108</div>
+                        </a>
+                    </li>
+                </ul>
+                @*<a href="#" class="ui-btn btn-more" id="J_MoreWorks">更多</a>*@
+            </div>
+        </div>
+         <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="worksEvent">
+			<div class="worksEvent-main">
+					<a href="/create.html" class="ui-btn ui-btn-green">没有找到团队,申请创建</a>
+			</div>
+		</div>
+        <script>
+            $(document).on("pageinit", "#join", function () {
+                var page = $(this);
+                var searchBox = page.find("#J_SearchBox");
+
+                //#region 搜索
+                page.find("#J_Search").bind("tap", function (ev) {
+                    ev.preventDefault();
+                    if (searchBox.is(":visible")) {
+                        searchBox.hide();
+                    } else {
+                        searchBox.show();
+                    }
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>

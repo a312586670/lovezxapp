@@ -1,0 +1,111 @@
+/*#region 直销社区*/
+.community-box,
+.community {
+  background-color: #f7f7f7;
+}
+.community {
+  background: #fff;
+  padding: 10px;
+  margin: 10px;
+}
+.community .community-title {
+  position: relative;
+  line-height: 20px;
+
+  >.my-img {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    margin-top: 0px;
+    background: #fff url("../icons/icon-default.svg") no-repeat center center;
+    background-size: contain;
+    border-radius: 100%;
+    z-index: 1;
+  }
+  >.my-time {
+    font-size: 1.2rem;
+    margin-left: 48px;
+    color: #666;
+
+    >span {
+      color: #606fb6;
+    }
+  }
+  >.my-name {
+    font-size: 1.4rem;
+    color: red;
+    margin-left: 48px;
+  }
+}
+.community .community-content {
+  font-size: 1.4rem;
+  margin-top: 8px;
+  line-height: 27px;
+}
+.clearfix:after {
+  content: ' ';
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+.community-option {
+  margin-top: 9.6px;
+
+  .community-option-box {
+    float: right;
+  }
+  .community-btn {
+    position: relative;
+    float: left;
+    width: 48px;
+    height: 20px;
+    text-align: center;
+    border-radius: 15px;
+    border: 1px solid #999;
+    line-height: 20px;
+
+    >i {
+      position: absolute;
+      left: 5o%;
+      left: 17px;
+      font-size: 1.4rem;
+      top: 0;
+    }
+  }
+}
+.community-replay-list {
+  margin-top: 4px;
+
+  >ul {
+    >li {
+      line-height: 24px;
+      font-size: 1.4rem;
+
+      span {
+        color: #336699;
+      }
+    }
+  }
+}
+.community-replay-input {
+  color: #666;
+  font-size: 1.4rem;
+  margin: 7px 0;
+
+  >input {
+    width: 100%;
+    height: 30px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 5px;
+    padding-left: 10px;
+
+    &:focus {
+      outline: 0;
+      outline: 0;
+      outline-offset: -2px;
+      border: 1px solid #6cb333;
+    }
+  }
+}

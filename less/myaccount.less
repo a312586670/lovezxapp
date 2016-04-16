@@ -1,0 +1,46 @@
+.myAccountList {
+	background-color: #fff;
+	padding: 0 10px;
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 1px;
+	>li {
+		&:last-child .list-itpx {
+			border-bottom: 0;
+		}
+		>a {
+			&:hover {
+				color: #333;
+			}
+		}
+	}
+}
+.myAccountList.link-angle-r a{
+	  padding: 16px 32px 16px 64px;
+}
+.myAccountList .list-item {
+	display: block;
+	border-bottom: 1px solid #ddd;
+	padding: 16px 32px;
+	color: #333;
+}
+.myAccountList .list-title {
+	font-size: 1.4rem;        /*font-weight: bold;*/
+	position: absolute;
+	left: 0;
+	top: 50%;
+	margin-top: -8px;
+}
+.myAccountList .list-content {
+	text-align: right;
+	font-size: 1.4rem;
+}
+.myAccountList .my-img {
+	width: 49px;
+	height: 49px;
+	display: inline-block;
+	vertical-align: middle;
+	background: url("../icons/icon-default.svg") no-repeat center center;
+	background-size: contain;
+	border-radius: 100%;
+	z-index: 1;
+}

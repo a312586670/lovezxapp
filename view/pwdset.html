@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="height=device-height, width=device-width, initial-scale=1" />
+	<title></title>
+	<script src="../common/jQuery/jquery-2.1.0.min.js"></script>
+	<script src="../common/jQuery/jquery.mobile-1.4.5.min.js"></script>
+	<script src="../common/mobile.js"></script>
+	<script src="../common/swipe/swipe.js"></script>
+	<script src="../common/js/common.js"></script>
+	<link href="../common/jQuery/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
+	<link href="../common/css/common.css" rel="stylesheet" />
+	<link href="../common/css/chehi.css" rel="stylesheet" />
+	<link href="../common/icomoon/icomoon.css" rel="stylesheet" />
+	<script src="../common/jQuery/jquery.validate.min.js"></script>
+	<script src="../common/jQuery/jquery.validate.addMethod.js"></script>
+	<link href="../common/photoswipe/photoswipe.css" rel="stylesheet" />
+	<link href="../common/photoswipe/default-skin/default-skin.css" rel="stylesheet" />
+	<script src="../common/photoswipe/photoswipe.min.js"></script>
+	<script src="../common/photoswipe/photoswipe-ui-default.min.js"></script>
+	<script src="../common/photoswipe/creatPhotoswipe.js"></script>
+	<link href="../common/mobiscroll/mobiscroll-2.11.1.full.min.css" rel="stylesheet" />
+	<script src="../common/mobiscroll/mobiscroll-2.11.1.full.min.js"></script>
+</head>
+<body>
+	<div data-role="page" id="FindPassword2">
+		<div data-role="header" data-position="fixed" data-tap-toggle="false">
+			<a href="#" data-rel="back" class="ui-btn-left btn-back icomoon-fanhui">返回</a>
+			<h1>找回密码</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<form class="loginForm">
+				<div class="field-contain">		
+					<div class="inputHasicon">
+						<div class="ui-input-text icomoon-edit">
+							<input name="newpassword" id="newpassword" value="" type="password" placeholder="输入新密码" data-role="none" />
+						</div>
+					</div>
+					<div class="inputHasicon">
+						<div class="ui-input-text icomoon-lock">
+							<input name="passwordagain" value="" type="password" placeholder="确认新密码" data-role="none" />
+						</div>
+					</div>
+				</div>				
+				<button class="ui-btn ui-btn-green form-btn" type="submit">确定</button>
+			</form>
+		</div>
+		<script>
+			$(document).on("pageinit", "#FindPassword2", function () {
+				var page = $(this);
+				var elForm = page.find('form'),
+					elSubmint = elForm.find("button[type=submit]");
+
+				elForm.validate({
+					rules: {
+						newpassword: {
+							required: true
+						},
+						passwordagain: {
+							required: true,
+							equalTo: "#newpassword"
+						}
+					},
+					messages: {
+						newpassword: {
+							required: "请输入新密码"
+						},
+						passwordagain: {
+							required: "请再次输入新密码",
+							equalTo: "两次输入的新密码不一致"
+						}
+					},
+					submitHandler: function (form, ev) {
+						ev.preventDefault();
+						elSubmint.prop("disabled", true);
+						$.mobile.loading("show");
+
+						//TODO:确定
+
+						elSubmint.prop("disabled", false);
+						$.mobile.loading("hide");
+						$Goto("成功.html")
+
+					},
+					invalidHandler: function () {
+						return false;
+					}
+				});
+			});
+		</script>
+	</div>
+</body>
+</html>
